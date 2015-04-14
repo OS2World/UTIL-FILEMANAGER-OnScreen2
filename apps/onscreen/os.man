@@ -1,0 +1,1016 @@
+OnScreen/2 File Viewer,                                    Release 2.50 22/01/95
+                                                                    User's Guide
+
+             ))  ))                           ))
+             ))  ))                           ))
+             ))  ))   )))))   ))))   )) )))  ))       )))))
+             ))  ))  ))      ))  ))   ))) ))         ))
+             ))  ))   ))))   ))))))   ))  ))          ))))
+             ))  ))      ))  ))       ))                 ))
+             ))))))  )))))    ))))   ))))            )))))
+
+
+
+                   ))))            ))       )))
+                  ))  ))                     ))
+                 ))      ))  ))   )))        ))   ))))
+                 ))      ))  ))    ))     )))))  ))  ))
+                 ))  ))) ))  ))    ))    ))  ))  ))))))
+                  ))  )) ))  ))    ))    ))  ))  ))
+                   )))))  ))) ))  ))))    ))) ))  ))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OnScreen/2 the file browser and viewer
+for OS/2, Win32
+
+------------------------------------------------------------------------------
+Warranty
+
+The author hereby disclaims all  warranties relating to this software, whether
+express or implied, including without limitation  any  implied  warranties  of
+merchantibility  or  fitness for a particular purpose.  The author will not be
+liable for any special, incidental, consequential, indirect or similar damages
+due to loss of data or any other reason, even if the author or an agent of the
+author has been advised of the possibility of such damages.  In no event shall
+the author's liability ever exceed the  price  paid for the license to use the
+software, regardless of the form of the claim.  The person using the  software
+bears all risk as to the quality and performance of the software.
+
+Support
+
+The  only  form of support available for OnScreen/2 at the moment is via email
+or surface mail  to  the  author.
+
+
+
+
+Email and surface mail information is provided below.
+
+Availability
+
+OnScreen/2 is normally available from the following sites
+hobbes.nmsu.edu:/os2/32bit/editors       OS/2 version
+ftp.cdrom.com:/pub/os2/32bit/editors     OS/2 version
+ftp.cica.indiana.edu:/pub/pc/win3/nt     Win32 version
+
+New releases and bug fixes  are  posted  regularly to these sites.  OnScreen/2
+may be available from other  locations  but  the  above  will  have  the  most
+recently released versions or bug fixes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright 1995-2006, by John J. Allen.
+Released under the GNU GPL v2 or later.
+
+
+John Allen,
+121 Moyville,
+Rathfarnham,
+Dublin 16,
+Ireland.
+
+Mail:      john.allen@codemountain.net
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 1-2
+Table of Contents
+
+1. GETTING STARTED                                   1-4
+
+ 1.1. INTRODUCTION                                   1-4
+
+ 1.2. INSTALLATION                                   1-4
+
+ 1.3. COMPATIBILITY                                  1-4
+
+ 1.4. ACKNOWLEDGEMENTS                               1-4
+
+ 1.5. FEATURE LIST                                   1-5
+
+ 1.6. FUTURE STUFF                                   1-5
+
+2. USING ONSCREEN                                    2-6
+
+ 2.1. STARTING ONSCREEN                              2-6
+  2.1.1. COMMAND LINE SYNTAX                         2-6
+  2.1.2. REDIRECTION/PIPING                          2-6
+
+ 2.2. EXITING ONSCREEN                               2-7
+
+ 2.3. FILE VIEWER                                    2-8
+  2.3.1. COMMANDS                                    2-8
+  2.3.2. TEXT WITH LAYOUT INFORMATION                2-8
+  2.3.3. TAB EXPANSION                               2-8
+  2.3.4. HEX MODE                                    2-8
+  2.3.5. HI-BIT FILTER                               2-9
+  2.3.6. BOOKMARKS                                   2-9
+  2.3.7. MEMORY USAGE                                2-9
+  2.3.8. SEARCHING                                   2-9
+  2.3.9. INVOKING A SHELL                            2-10
+  2.3.10. VIDEO MODE SUPPORT                         2-10
+  2.3.11. INVOKING AN EDITOR                         2-10
+  2.3.12. STATUS LINES                               2-11
+  2.3.13. COMMAND KEYS                               2-12
+
+ 2.4. BUFFER LIST                                    2-13
+  2.4.1. COMMANDS                                    2-13
+  2.4.2. COMMAND KEYS                                2-13
+
+ 2.5. LINE EDITOR                                    2-13
+  2.5.1. COMMAND KEYS                                2-13
+
+ 2.6. FILE MANAGER                                   2-14
+  2.6.1. COMMANDS                                    2-14
+  2.6.2. COMMAND KEYS                                2-14
+
+3. CONFIGURATION                                     3-15
+
+ 3.1. STYLES                                         3-15
+
+ 3.2. CONFIGURABLE ITEMS                             3-16
+
+ 3.3. COLOURS                                        3-16
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 1-3
+ 1.    Getting Started
+
+  1.1. Introduction
+  Welcome to OnScreen/2, a  sophisticated fullscreen text and binary
+  file viewer for the OS/2, and Win32 operating systems  running  on
+  IBM compatible PCs based on the 386 or higher CPUs.
+
+  OnScreen/2  displays  files  in  a  text  window  or  fullscreen session and
+  provides scrolling,  positioning  and  filtering  commands.   The motivation
+  behind OnScreen/2 was to provide an identical (or as near  as  possible  to)
+  text mode file viewer for OS/2, and Win32.
+
+  OnScreen/2  provides  a powerful file browser for selecting files which also
+  provides basic file management functionality.
+
+  OnScreen/2 supports redirected input (i.e.  piping).
+
+  1.2. Installation
+  OnScreen/2 installation could not be simpler, just change into the directory
+  where you unzipped OnScreen/2 to and run install.
+
+  If you executed the command unzip os2_50or.zip  in A:\ then you would have a
+  directory named OnScreen/2 in A:\.  Simply change to A:\ and type install.
+
+  If you are using PKUNZIP you will have to use the -d  option  otherwise  you
+  will not have the required directory structure for the installation program.
+
+  When installing the OS/2 or  Win32  version  you can install either the .DLL
+  implementation or the non .DLL  implementation.   If  you  do  not  envisage
+  installing  any  of  the  other John Allen utilities (availability early 95)
+  then installing the non .DLL version is most likely what you should do.
+
+  The  installation  program  allows you to specify which directory to use for
+  the OnScreen/2 base files and the .DLL files.  It also allows you to specify
+  whether you want the .DLL version or not.
+
+  1.3. Compatibility
+  OnScreen/2  2.50  has  been  tested  for  compatibility  with  the following
+  operating systems.
+
+  OS/2: Versions 2.0, 2.1, 2.11, and 3.0/4.0 Warp.
+
+  Windows NT: Version 3.5x, and 4.0 only.
+
+  Windows 95
+
+  1.4. Acknowledgements
+  IBM for producing and supporting  OS/2,  the best operating system for PC's.
+  Henk Den Adel for writing the original manual and for his continued  testing
+  and  suggestions.  Mitch Williams, Lionel B. Dyck and Norris Counch for Beta
+  testing. 
+
+  Borland International for their C++ compilers, and Brief editor.
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 1-4
+  1.5.  Feature list
+         Case-sensitive/insensitive regular expression and
+          plain text searches.
+         Horizontal scrolling 10 chars at a time.
+         Page up & down.
+         Go to top or bottom of file.
+         Go to a specific line.
+         Go to previous or next file.
+         Load OS/2, MAC & Unix text files and binary files.
+         Supports redirected stdin.
+         Command help with ? or F1. (os.hlp must be in same
+          dir as os.exe)
+         Toggleable sound.
+         Toggleable tab expansion.
+         User configurable tab size.
+         Customisable colours.
+         Configuration saving.
+         Quick file select using keys 1 to 9.
+         32 bit versions for OS/2, and Windows NT.
+         Selection list for loaded files.
+         Remove file from loaded list.
+         Run with no arguments brings up file selection
+          browser.
+         Run with one argument which is a directory brings up
+          file selection browser.
+         Line editor with history recall for input on bottom
+          status line.
+         Bookmarks.
+         Multiple top line display formats.
+         Hex mode.
+         Bright background colours.
+         Display of text with layout information.
+         User definable styles, including syntax
+          highlighting.
+         Invoke editor. (Including PM or Win32 apps)
+         Display output of filter rather than file contents.
+         Enhanced file selection browser with edit, copy,
+          rename, delete, move, sort, change directory,  make
+          directory and set file matching pattern.
+         Search in HEX mode.
+         Go to offset in HEX mode.
+
+  1.6. Future stuff
+         Faster regular expression searching.
+         Option to use standard OS/2, NT wildcards.
+         Background file loading.
+         File tagging in the file browser.
+         Invoke any command on tagged file set.
+         User specified key bindings.
+         Text with layout recognize ANSI Escape sequences.
+         Cross file bookmarks.
+         Printing support including Postscript.
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 1-5
+2.    Using OnScreen/2
+
+  2.1. Starting OnScreen/2
+     2.1.1.    Command line syntax
+     You may start OnScreen/2 with  or without parameters.  The general syntax
+     is as follows:-
+
+     os [switches] [filespec...]
+
+     Switches comprise one or more / characters followed by option letters  or
+     numbers. (eg. /help)
+
+     The following switches are available in this release.
+     /help                   displays the list of switches
+     /ignorestdin            causes OnScreen/2 to ignore redirected stdin
+     /raw style              disables filter for specified style
+     /search regexp|plain    set searches to regular expression or plain text
+     /textwithlayout on|off  turn textwithlayout on or off
+     /highbit on|off         turn highbit filter on or off
+
+     A hyphen (-) may be  used  in  place  of  the /. The environment variable
+     SWITCHCHAR can be set to the list of characters that will be accepted  as
+     switch characters. (eg. SET SWITCHCHAR=/-$)
+
+     Filespec may  be  one  or  more  filenames  which  may contain wildcards.
+     OnScreen/2 uses a regular expression pattern matcher  for  the  wildcards
+     and  therefore does not conform to the standard OS/2, Win32 command shell
+     wildcards.
+
+     OnScreen/2 wildcards are as follows:-
+
+     *      Match zero or more occurrences of any character.
+     .      Match the period/fullstop character.
+     ?      Match a single occurence of any character.
+     [az]   Match a single occurence of specified characters.
+     [a-z]  Match a single occurence of specified range of characters.
+
+     For  example  the  wildcard  file  specification xxx.[qa]*.xyz will match
+     files beginning with xxx.  followed  by  a  q  or  an  a and zero of more
+     occurrences of any character followed by .xyz.
+
+     If OnScreen/2 is started without any command line parameters  or  with  a
+     single  parameter  which  is the name of a directory it will bring up the
+     file browser.
+
+     2.1.2.    Redirection/piping
+     OnScreen/2 is capable of acting as  a command line filter.  An example of
+     this is:-
+
+     [C:\]dir c:\ /s | os
+
+     There  are  some  restrictions in the current release.  With this release
+     OnScreen/2 has to read the entire output before it will display anything.
+     This means that until  the  command  which  is  generating the output has
+     completed you will not be able to view the output with OnScreen/2.   This
+     restriction will be lifted in a future release.
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-6
+
+  2.2. Exiting OnScreen/2
+  There are three different ways to exit from OnScreen/2.
+
+   The Alt+Q command clears the screen and then returns to the prompt.  The  Q
+   and X commands also perform the same function.  The Alt+Q function works in
+   both  the file viewer and the file browser.  The Q and X commands only work
+   in the file viewer.
+
+   The Alt+A command returns  to  the  prompt  clearing  the  last line on the
+   screen but otherwise leaving the display exactly as it was.  The Ctrl+X and
+   ESC commands also perform the same function  but  only  work  in  the  file
+   viewer and the ESC command only quits if there are no files are loaded.
+
+   The Alt+X key combination restores the screen to the display you had before
+   OnScreen/2  was  run  and then returns to the prompt.  It works in both the
+   file viewer and the file browser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-7
+  2.3.  File Viewer
+     2.3.1.    Commands
+     You control the OnScreen/2 File  Viewer  by pressing keys or combinations
+     of keys which correspond to the OnScreen/2 File  Viewer  commands.   Some
+     commands  have  more  than one key combination associated with them, e.g.
+     Next File = Alt+N or Ctrl+PgDn.
+
+     The key combinations associated with specific commands are pre-programmed
+     into the OnScreen/2 File Viewer and cannot be changed at this time.  This
+     restriction will be lifted in a future release.
+
+     2.3.2.    Text with layout information
+     OnScreen/2 can display  files  containing  text  with layout information.
+     Files with layout information  contain  special  characters  that  direct
+     OnScreen/2  to display subsequent characters in a different colour.  This
+     User's Guide contains these special  characters.  If you are viewing this
+     guide using OnScreen/2 you can press L now to  toggle  text  with  layout
+     information off so you can see these characters.
+
+     Two methods of controlling the colour of the text are supported.
+     UNIX(tm) nroff style and Wordstar(tm) style.
+
+     nroff uses the following format:-
+
+      _<BKSPACE><CHARACTER>            Display character in underlined colour.
+      <CHARACTER><BKSPACE><CHARACTER>  Display character in bold colour.
+
+     Wordstar(tm) uses the following format:-
+
+      ^B  text ^B                      Display text in bold colour.
+      ^S  text ^S                      Display text in underlined colour.
+     ^B^S  text ^S^B                   Display text in bold and underlined
+                                       colour.
+
+     The  text  with  layout  option can be toggled with the L command, it can
+     also be set on a per  file-type  basis  by creating a style with the text
+     with layout option either ON or OFF in the os.set settings file
+
+     2.3.3.    Tab Expansion
+     When Tab expansion is enabled OnScreen/2 will display the correct  number
+     of  spaces for each Tab character it encounters.  The default Tab size is
+     3, but this can be changed with  the Tab and Shift+Tab commands.  The Tab
+     size can also be set on a per file-type basis by creating a style with  a
+     specific Tab size in the os.set settings file.
+
+     2.3.4.    Hex Mode
+     Hex  mode  displays  the  file  in a format similar to the debug command.
+     When switching between text mode  and  hex  mode an attempt to retain the
+     same positioning is made, but this is not always perfect.  Hex  mode  can
+     be  toggled  with  the  H  command, it can also be set on a per file-type
+     basis by creating a style with  hex  mode  either ON or OFF in the os.set
+     settings file.
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-8
+     2.3.5.    Hi-bit filter
+     The high-bit filter strips the high-bit from all characters  above  ASCII
+     127.   It  also  handles  the 0x8D character as a carriage-return thereby
+     allowing easy viewing of Wordstar(tm)  files.  The high-bit filter can be
+     toggled with the .  command.  It can also be set on a per file-type basis
+     by creating a style with the high-bit filter either  ON  or  OFF  in  the
+     os.set settings file.
+
+     2.3.6.    Bookmarks
+     You  can  set  a  bookmark  with  the Alt+0..9 commands.  You can go to a
+     previously set bookmark  with  the  Alt+G  command  followed by the digit
+     representing the bookmark you wish to jump to.
+
+     If you drop a bookmark that you had already set elsewhere then it will be
+     reset to the new location.  If you wish to clear a bookmark simply go  to
+     it and then set it again, this will clear it.
+
+     2.3.7.    Memory usage
+     OnScreen/2  normally  only  keeps one file loaded at a time (ie.  the one
+     you're looking  at),  this  helps  reduce  memory  usage.   The K command
+     toggles between keeping all the files you have looked at loaded and  just
+     loading the one you are currently viewing.
+
+     Obviously  keeping  all files loaded speeds up switching between multiple
+     loaded files but it also uses  lots  more memory.  The default is to only
+     keep the currently viewed file loaded.
+
+     2.3.8.    Searching
+     OnScreen/2  provides  for  searches  which  can  be  case-sensitive   and
+     case-insensitive  and may be either forwards or backwards as you require.
+     OnScreen/2  also  provides  for  regular  expression  searches.   Regular
+     expressions are a powerful way of expressing a pattern that a search will
+     match.
+
+     With regular expressions you can specify searches such as the following:-
+
+     d[ie]*lay
+
+     This will find text where it begins with a d followed by an i or an e and
+     zero or more occurrences  of  any  character  followed by lay.  This will
+     find words such as delay and display.
+
+     Unlike  typical  UNIX based applications OnScreen/2's regular expressions
+     are capable of being case-sensitive or case-insensitive.
+
+     For a case-sensitive search use the S,  Alt+S  or  /  commands,  and  for
+     case-insensitive  searches use the F, Alt+F or \ commands.  The Alt+F and
+     Alt+S commands search backwards.
+
+     OnScreen/2 starts searches either from  the line the current selection is
+     on, or from the top of the file if there is no selection active.  You can
+     clear the current selection with the C command.
+
+     The A and Ctrl+L commands repeat the previous search.  All the parameters
+     of the previous search are preserved with the exception of the setting of
+     the regular expression toggle, which can be toggled on  and  off  between
+     repeat searches.
+
+     OnScreen/2  will  scroll the display up, down, left or right as necessary
+     to bring the matching text  into  view.   Only  the matching text will be
+     highlighted not the entire line.
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-9
+     2.3.9.      Invoking a shell
+     You can invoke a shell by using the Alt+O command.  This will take you to
+     the current default shell for the operating system for  which  OnScreen/2
+     has  been  compiled.   
+
+     Use the EXIT command to return to OnScreen/2.
+
+     2.3.10.   Video mode support
+     OnScreen/2 supports whatever text mode you happend to be in.  It does not
+     have any built in facility to change text mode.  You can change  it  with
+     the  mode  command  or  a  utility which may have been supplied with your
+     video card.
+
+     Windows NT allows  you  to  change  the  number  of  rows  and columns of
+     windowed sessions.  It is not recommended that you change these  settings
+     while  you  are  running OnScreen/2.  It is also not recommended that you
+     switch to  fullscreen  if  you  are  using  settings  that  would  not be
+     supported there.
+
+     OnScreen/2 cannot operate in less than 80 column mode.
+
+     2.3.11.     Invoking an editor
+     The Alt+E command invokes an editor on the current file.  The editor must
+     be set in the os.set file.  A default editor can be assigned by  defining
+     a  style from which all others inherit.  SubStyles can prevent editing by
+     setting the editor to blank.
+
+     eg. Editor =>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-10
+     2.3.12.     Status Lines
+     The top and bottom lines of  the  display are status lines.  The top line
+     provides status information relating to the file currently being viewed.
+
+     The bottom status line displays the name  of  the  program,  the  release
+     version  and  the operating system it was compiled for.  It also displays
+     the copyright message and  any  error  messages  as  well as serving as a
+     location for menu type selection and line editing.  On the far  right  it
+     shows  the  current  time in 12 hour format.  The environment variable TZ
+     must be set for the time to be displayed correctly.  (eg.  SET TZ=GMT)
+
+     There are 3 distinct formats for the top status line.  They can be cycled
+     through with the Alt+Z command.
+
+Format 1.
+--------------------------------------------------------------------------------
+        47 |       1024 | +  10 | 12-12-1994 | 12:34pm |*c:\readme
+--------------------------------------------------------------------------------
+      1            2        3          4          5     6     7
+
+     1.   Line number at top of display
+     2.   Total number of lines in file
+     3.   The current left column offset
+     4.   The date the file was last modified
+     5.   The time the file was last modified
+     6.   An asterisk indicates that the file has been modified
+     7.   The path and name of the displayed file
+
+Format 2.
+--------------------------------------------------------------------------------
+        47 |        15% | +  10 | 12-12-1994 | 12:34pm |*c:\readme
+--------------------------------------------------------------------------------
+      1            2        3          4          5     6     7
+
+     1.   Line number at top of display
+     2.   Percentage from the beginning of the file
+     3.   The current left column offset
+     4.   The date the file was last modified
+     5.   The time the file was last modified
+     6.   An asterisk indicates that the file has been modified
+     7.   The path and name of the displayed file
+
+Format 3.
+--------------------------------------------------------------------------------
+02-04-1994 | 12:34pm |     48290 |        134 |*c:\readme
+--------------------------------------------------------------------------------
+     1          2          3          4        5     6
+
+     1.   The date the file was last modified
+     2.   The time the file was last modified
+     3.   Total number of lines in file
+     4.   Line number at top of display
+     5.   An asterisk indicates that the file has been modified
+     6.   The path and name of the displayed file
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-11
+     2.3.13.     Command Keys
+     Key                 Function
+     .                   Toggle highbit filter on/off
+     -, Ctrl+-           Dump current file
+     *                   Refresh file
+     1..9                Quick select files 1 to 9
+     A, Ctrl+L           Search again. Preserves parameters of previous search
+     B                   Bring up buffer list
+     C                   Clear current selection
+     D                   Toggle external filter on/off
+     F, \                Case insensitive search forwards
+     G                   Go to line number
+     H                   Toggle hex display mode on/off
+     K                   Toggle keep files loaded on/off
+     L                   Toggle text with layout on/off
+     O                   Toggles warning beeps on/off
+     R                   Toggle regular expressions on/off for searches.
+     S, /                Case sensitive search forwards
+     W                   Toggle word break
+     X, Q, Alt+Q         Quit clearing screen
+     Left Arrow          Scroll right ten characters
+     Right Arrow         Scroll left ten characters
+     Up Arrow            Scroll the file down on line
+     Down Arrow          Scroll the file up one line
+     Ctrl+Left Arrow     Scroll the file left to column 0
+     PageUp              Scroll up one page
+     PageDown, Enter     Scroll down one page
+     Space               Scroll down one page
+     Home                Go to the top of the file
+     End                 Go to the bottom of the file
+     Alt+A, ESC, Ctrl+X  Quit leaving display as is
+     Alt+0..9            Drop a bookmark
+     Alt+E               Invoke editor
+     Alt+F               Case insensitive search backwards
+     Alt+G               Go to book mark
+     Alt+O               Go to shell
+     Alt+S               Case sensitive search backwards
+     Alt+V, +            Bring up file browser
+     Alt+X               Quit restoring screen
+     Alt+Z               Change top line display format
+     Ctrl+PageUp, Alt+P  Previous File
+     Ctrl+PageDown,      Next File
+     Alt+N               Next File
+     F1                  View users guide (os.man)
+     Shift+F1            View users guide (os.inf, OS/2 only)
+     ?                   Display keys help
+     F2                  Change foreground text colour
+     Shift+F2            Change background text colour
+     F3                  Change foreground selected text colour
+     Shift+F3            Change background selected text colour
+     F4                  Change foreground status line text colour
+     Shift+F4            Change background status line text colour
+     F5                  Change the BOLD text colour
+     F6                  Change the UNDERLINED text colour
+     F7                  Change the BOLD+UNDERLINED text colour
+     Tab                 Increase the Tab width
+     Shift+Tab           Decrease the Tab width
+     Ctrl+Tab            Toggle Tab expansion on/off
+     Ctrl+F              Display full file name on status line
+     Ctrl+S              Save current settings
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-12
+  2.4.  Buffer list
+     2.4.1.    Commands
+     You control the OnScreen/2 Buffer  List  by pressing keys or combinations
+     of keys which correspond to the OnScreen/2 Buffer List commands.
+
+     The key combinations associated with specific commands are pre-programmed
+     into the OnScreen/2 Buffer List and cannot be changed at this time.
+
+     2.4.2.    Command Keys
+     Key                 Function
+     Up Arrow            Move up one file
+     Down Arrow          Move down one file
+     Enter               Select current file
+     Escape              Return back to previously viewed file
+
+  2.5. Line Editor
+     2.5.1.    Command Keys
+     Key                 Function
+     Up Arrow            Select previous item from the history.
+     Down Arrow          Select next item from the history.
+     Left Arrow          Move one character to the left
+     Right Arrow         Move one character to the right
+     Home                Move to beginning of line
+     End                 Move to end of line
+     Backspace           Delete character preceding cursor
+     Del                 Delete character under cursor
+     Enter               Finished editing
+     Escape              Cancel operation
+
+     The line editor provides for history recall of previously  entered  text.
+     This  feature  is  not  always  enabled,  but  when  it is you can recall
+     previously entered text by pressing the up arrow key.
+
+     After moving up in the history you  can move back down again by using the
+     down arrow key.  The number of  elements  a  history  can  hold  is  only
+     limited by available memory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-13
+  2.6.  File Manager
+     2.6.1.    Commands
+     You  control the OnScreen/2 File Manager by pressing keys or combinations
+     of keys which correspond to the OnScreen/2 File Manager commands.
+
+     The key combinations associated with specific commands are pre-programmed
+     into the OnScreen/2 File Manager and cannot be changed at this time.
+
+     2.6.2.    Command Keys
+     Key                 Function
+     Up Arrow            Move up one file
+     Down Arrow          Move down one file
+     Left Arrow          Move one column to the left
+     Right Arrow         Move one column to the right
+     Home                Move to top left. If already at top left then move
+                         to first file
+     End                 Move to bottom right. If already at bottom right then
+                         move to last file
+     Tab                 Move to next matching file
+     Backspace           Move to previously matching file
+     Enter               Select current file
+     Escape              Return to previously viewed file or quit
+     Ctrl+A..Z           Change current disk
+     /                   Bring up file browser menu
+     Alt+A               Quit leaving the screen as it is
+     Alt+C               Copy the currently selected file
+     Alt+D               Delete the currently selected file
+     Alt+E               Edit the currently selected file
+     Alt+F               Change filespec filter
+     Alt+H               Change directory
+     Alt+K               Make directory
+     Alt+M               Move the currently selected file
+     Alt+Q               Quit clearing the screen
+     Alt+R               Rename the currently selected file
+     Alt+S               Sort directory listing
+     Alt+V               View the currently selected file
+     Alt+X               Quit restoring the screen
+     Space               Toggle the file tag. (not yet available)
+
+
+     The file browser  provides  for  quick  file  and  directory selection by
+     allowing you to type in a prefix for the file you are trying to select.
+
+     For example if you are trying to select the file  custinv.cpp  you  could
+     type cus and this will move the file selection bar to the first file with
+     the prefix cus.
+
+     The  Tab and Backspace keys move you forwards and backwards respectively.
+     If you hold down the shift key  then  you are in directory select mode as
+     opposed to file select mode.
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 2-14
+3.    Configuration
+OnScreen/2's configuration can be controlled from the  keyboard  or  from  the
+os.set  file.   The  preferred method is to use the os.set file as this is the
+way all OnScreen/2 settings will be stored in the future.
+
+If you are viewing  a  file  for  which  a  style  applies and make changes to
+OnScreen/2 settings using the command keys, you are only affecting that style.
+The bottom status line will indicate that a change has been made to a style as
+against a global change.
+
+  3.1. Styles
+  The  os.set  file  allows  for  the specification of one or more user defined
+  styles which can be associated with  specific file extensions.  Comments in a
+  set file begin with a ; and end at eol.
+
+  Style name (extensions list) [inherited styles]
+  {
+  BackGndColor        => Green
+  }
+
+  eg.
+  Style C++ (.cpp .cxx .hxx .hpp) Default, C
+  {
+  Reserved       => private
+                 => catch
+  SingleLineComment   => //
+  }
+
+  This declares a style called C++ which is associated  with  files  with  the
+  extensions .cpp .cxx .hxx .hpp and inherits from the styles Default and C. A
+  style does not have to inherit from other styles.
+
+  The  extensions  list can also be a single *, which indicates that this is a
+  default style which will apply to  all  files which have either no extension
+  or an extension for which a specific style has not  been  defined.   If  you
+  specify this default style it should appear as the first style in the os.set
+  file.
+
+  See the supplied os.set file for complete examples.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 3-15
+  3.2.  Configurable items
+   BackGndColor          The background colour of the default text
+   BoldColor             The foreground colour of bold text
+   BoldUnderlineColor    The foreground colour of bold+underlined text
+   CaseConvert           Convert keywords to the case used in os.set file
+   CaseSensitive         Specify language case sensitivity
+   CloseComment          The ending for a multiline comment
+   ClosePreprocessor     The ending for a preprocessor command
+   CommentColor          The foreground colour of comment text
+   CommentColumn         The starting column for single line comments (0=none)
+   DisplayMode           The display mode, either TEXT or HEX
+   Editor                The editor for this file type. (eg. b2.exe)
+   Escape                The character which precedes a string delimiter
+                         within a string
+   ExpandTabs            Expand tabs, either ON or OFF
+   ExternalFilter        View the contents of the file through this filter.
+   ForeGndColor          The foreground colour of the default text
+   HighBitFilter         Highbit filter, either ON or OFF
+   IdentColor            The foreground colour of identifiers
+   LineContinuation      The line continuation character for the preprocessor
+   NumberColor           The foreground colour of numbers
+   NumberPrefix          Prefixes which begin a valid number
+   OpenComment           The beginning of a multiline comment
+   OpenPreprocessor      The beginning of a preprocessor statement
+   PreprocessorColor     The foreground colour of preprocessor statements
+   Reserved              A reserved keyword
+   ReservedColor         The foreground colour of reserved keywords
+   SelectedBackGndColor  The background colour of select text
+   SelectedForeGndColor  The foreground colour of selected text
+   SingleLineComment     The beginning of a single line comment
+   Symbols               Characters which are to recognized as symbols
+   SymbolsColor          The foreground colour of symbols
+   Strings               The characters which enclose strings
+   StringColor           The foreground colour of strings
+   TabWidth              The width of a tab
+   TextWithLayout        Text with layout, either ON or OFF
+   TopLineFormat         The format to use for the top status line, 1 2 or 3
+   UnderlineColor        The foreground colour of underlined text
+
+
+  3.3. Colours
+  Black,   Blue,  Green,  Cyan,  Red,  Magenta,  Brown,  LightGray,  DarkGray,
+  LightBlue, LightGreen, LightCyan, LightRed, LightMagenta, Yellow and White.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+OnScreen/2 User's Guide             Page 3-16
+

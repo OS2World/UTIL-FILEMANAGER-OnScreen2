@@ -1,0 +1,766 @@
+;*[f*-0------------------------------oOo-----------------------------------
+;
+; $Id: os.set 2.11 1995/04/29 11:58:11 jallen GA $
+; $Source: X:/cpp/apps/onscreen/RCS/os.set $
+; $Author: jallen $
+;
+; This is an example OnScreen/2 settings file.
+;
+; You can set a variety of OnScreen/2 items in this file.
+; * Key bindings (not yet)
+; * Colours for status lines
+; * Colours for file manager (not yet)
+; * Colours for buffer list (not yet)
+; * Other global OnScreen/2 settings
+; * Styles, including syntax highlighting
+;
+; In this file you can specify the styles which OnScreen/2 will apply
+; to files with specific extensions.
+;
+; Files with either no extension or with an extension which is not
+; listed here will use the OnScreen/2 defaults.
+;
+; (C) 1995 Warp Factor 7, All rights reserved.
+;
+; Comments start with a ; and end at EOL. The ; must be the first
+; non whitespace character on the line
+;
+; The syntax for the style heading is as follows
+; Keyword StyleName File-Ext-List Inherited-Styles
+; Style   Pascal    (.pas) 		 Base Default...
+;
+; These settings if present will override the settings made with the OnScreen
+; command keys.
+;
+; All styles inherit from the settings made with the OnScreen/2 command keys,
+; this allows a style to just override the elements which is requires
+; changes to.
+;
+;*f]*--------------------------------oOo-----------------------------------
+
+Settings
+{
+	Sound					=> off
+	KeepFilesLoaded			=> off
+	Search					=> plain
+	StatusTextForeColor 	=> Black
+	StatusTextBackColor		=> lightgray
+	DiskTextForeColor		=> black
+	DiskTextBackColor		=> lightgray
+	CurDiskTextForeColor	=> white
+	CurDiskTextBackColor	=> lightgray
+	FileTextForeColor		=> lightgray
+	FileTextBackColor		=> black
+	CurFileTextForeColor	=> white
+	CurFileTextBackColor	=> lightgreen
+}
+
+;
+; A style with an * as the file extension list will apply to files with
+; extensions for which no style has been explicitly defined.
+; There can only be one such style defined
+;
+Style Default (*)
+{
+	SymbolsColor		=> Yellow
+	CommentColor		=> LightGray
+	StringColor			=> LightRed
+	ReservedColor		=> White
+	PreprocessorColor	=> Yellow
+	NumberColor			=> Brown
+	IdentColor			=> Green
+
+	; if the following items are not specified they will use
+	; the OnScreen/2 settings that the user has selected.
+	; These items can be overridden for derived styles
+	ForeGndColor		=> LightGray
+	BackGndColor		=> Black
+	SelectedForeGndColor=> White
+	SelectedBackGndColor=> LightGray
+	BoldColor			=> White
+	UnderlineColor		=> Brown
+	BoldUnderlineColor	=> Yellow
+	ExpandTabs			=> ON
+	TabWidth			=> 4
+	DisplayMode			=> Text
+	TopLineFormat		=> 1
+}
+
+;
+; This is a base style which is useful for programming languages
+; the empty () indicates that this style does not apply to
+; any file type
+;
+Style Base () Default
+{
+	ExpandTabs			=> ON
+	HighBitFilter		=> OFF
+	TextWithLayout		=> OFF
+	TabWidth			=> 4
+	DisplayMode			=> Text
+}
+
+Style Zip (.zip) Default
+{
+	ExternalFilter		=> unzip -v %s
+	Editor				=>
+}
+
+Style Binary (.exe .com .dll .ico) Default
+{
+	; hex mode automatically turns off TextWithLayout/Highbit filter etc..
+	DisplayMode			=> Hex
+}
+
+; assume .DOC is Wordstar and not Microsoft Word
+Style Wordstar (.doc) Base
+{
+	TabWidth			=> 4
+	TextWithLayout		=> ON
+	HighBitFilter		=> ON
+	Editor				=> b2.exe -h
+}
+
+Style UnixManPage (.man .1) Base
+{
+	TabWidth			=> 4
+	TextWithLayout		=> ON
+	HighBitFilter		=> ON
+	Editor				=> b2.exe -h
+}
+
+Style C (.c .h) Base
+{
+	TabWidth			=> 4
+	Reserved 			=> asm
+						=> auto
+						=> break
+						=> case
+						=> cdecl
+						=> char
+						=> const
+						=> continue
+						=> default
+						=> double
+						=> do
+						=> else
+						=> enum
+						=> extern
+						=> far
+						=> float
+						=> for
+						=> goto
+						=> huge
+						=> if
+						=> interrupt
+						=> int
+						=> long
+						=> near
+						=> pascal
+						=> register
+						=> return
+						=> short
+						=> signed
+						=> sizeof
+						=> static
+						=> struct
+						=> switch
+						=> typedef
+						=> union
+						=> unsigned
+						=> void
+						=> volatile
+						=> while
+	Symbols 			=> {}[]().=+-*/:;<>|&,~!^?
+	Strings 			=> '"
+	Escape 				=> \
+	OpenComment 		=> /*
+	CloseComment 		=> */
+	SingleLineComment	=>
+	CommentColumn 		=>
+	NumberPrefix 		=> 0X
+						=> 0x
+	OpenPreprocessor 	=> #
+	ClosePreprocessor	=>
+	LineContinuation	=> \
+	CaseSensitive 		=> YES
+	Editor				=> b2.exe
+}
+
+Style C++ (.cpp .hpp .cxx .hxx) C
+{
+	Reserved 			=> class
+						=> delete
+						=> friend
+						=> inline
+						=> new
+						=> operator
+						=> private
+						=> protected
+						=> public
+						=> template
+						=> this
+						=> throw
+						=> try
+						=> catch
+						=> virtual
+	SingleLineComment	=> //
+}
+
+Style OSStyle (.set) Base
+{
+	TabWidth			=> 4
+	Reserved			=> Style
+						=> Reserved
+						=> SymbolsColor
+						=> CommentColor
+						=> StringColor
+						=> ReservedColor
+						=> PreprocessorColor
+						=> NumberColor
+						=> IdentColor
+						=> ForeGndColor
+						=> BackGndColor
+						=> SelectedForeGndColor
+						=> SelectedBackGndColor
+						=> StatusForeGndColor
+						=> StatusBackGndColor
+						=> BoldColor
+						=> UnderlineColor
+						=> BoldUnderlineColor
+						=> RegularExpressions
+						=> Sound
+						=> Strings
+						=> Symbols
+						=> Escape
+						=> OpenComment
+						=> CloseComment
+						=> SingleLineComment
+						=> CommentColumn
+						=> NumberPrefix
+						=> OpenPreprocessor
+						=> ClosePreprocessor
+						=> CaseSensitive
+						=> ExpandTabs
+						=> HighBitFilter
+						=> TextWithLayout
+						=> TabWidth
+						=> DisplayMode
+						=> TopLineFormat
+						=> LineContinuation
+						=> Editor
+						=> ExternalFilter
+						=> ON
+						=> OFF
+						=> YES
+						=> NO
+						=> Text
+						=> Hex
+						=> Black
+						=> Blue
+						=> Green
+						=> Cyan
+						=> Red
+						=> Magenta
+						=> Brown
+						=> LightGray
+						=> DarkGray
+						=> LightBlue
+						=> LightGreen
+						=> LightCyan
+						=> LightRed
+						=> LightMagenta
+						=> Yellow
+						=> White
+						=> KeepFilesLoaded
+						=> Search
+						=> StatusTextForeColor
+						=> StatusTextBackColor
+						=> DiskTextForeColor
+						=> DiskTextBackColor
+						=> CurDiskTextForeColor
+						=> CurDiskTextBackColor
+						=> FileTextForeColor
+						=> FileTextBackColor
+						=> CurFileTextForeColor
+						=> CurFileTextBackColor
+						=> plain
+						=> Regexp
+	Symbols 			=> >=(){}.
+	SingleLineComment	=> ;
+	CommentColumn 		=>
+	CaseSensitive 		=> NO
+	Editor				=> b2.exe
+}
+
+Style Pascal (.pas .inc) Base
+{
+	Reserved 			=> AND
+						=> ARRAY
+						=> ASM
+						=> BEGIN
+						=> BOOLEAN
+						=> BYTE
+						=> CASE
+						=> CHAR
+						=> COMP
+						=> CONST
+						=> CONSTRUCTOR
+						=> DESTRUCTOR
+						=> DIV
+						=> DOUBLE
+						=> DOWNTO
+						=> DO
+						=> ELSE
+						=> END
+						=> EXIT
+						=> EXTENDED
+						=> EXTERNAL
+						=> FALSE
+						=> FILE
+						=> FORWARD
+						=> FOR
+						=> FUNCTION
+						=> GOTO
+						=> IF
+						=> IMPLEMENTATION
+						=> INTEGER
+						=> INTERFACE
+						=> IN
+						=> LABEL
+						=> LONGINT
+						=> MOD
+						=> NIL
+						=> NOT
+						=> OBJECT
+						=> OF
+						=> ORD
+						=> OR
+						=> PACKED
+						=> PRIVATE
+						=> PROCEDURE
+						=> PROGRAM
+						=> REAL
+						=> RECORD
+						=> REPEAT
+						=> SET
+						=> SHL
+						=> SHR
+						=> SHORTINT
+						=> SINGLE
+						=> STRING
+						=> THEN
+						=> TO
+						=> TRUE
+						=> TYPE
+						=> UNIT
+						=> UNTIL
+						=> USES
+						=> VAR
+						=> VIRTUAL
+						=> WHILE
+						=> WITH
+						=> WORD
+						=> XOR
+	Symbols 			=> @().=*+-/[],<>:;
+	Strings 			=> '"
+	OpenComment 		=> (*
+						=> {
+	CloseComment 		=> *)
+						=> }
+	SingleLineComment 	=>
+	CommentColumn 		=>
+	NumberPrefix 		=> $
+						=> #
+	OpenPreprocessor 	=> {$
+	ClosePreprocessor 	=> }
+	CaseSensitive 		=> NO
+	CaseConvert			=> YES
+	Editor				=> b2.exe
+}
+
+Style Basic (.bas .bi) Base
+{
+	Reserved			=>
+						=> ABS
+						=> ACCESS
+						=> ALIAS
+						=> ALL
+						=> AND
+						=> ANY
+						=> APPEND
+						=> ASC
+						=> AS
+						=> ATN
+						=> BASE
+						=> BEEP
+						=> BEGINTRANS
+						=> BINARY
+						=> BLOAD
+						=> BOF
+						=> BSAVE
+						=> BYVAL
+						=> CALLS
+						=> CALL
+						=> CASE
+						=> CCUR
+						=> CDBL
+						=> CDECL
+						=> CHAIN
+						=> CHDIR
+						=> CHDRIVE
+						=> CHECKPOINT
+						=> CHR$
+						=> CINT
+						=> CIRCLE
+						=> CLEAR
+						=> CLNG
+						=> CLOSE
+						=> CLS
+						=> COLOR
+						=> COMMAND$
+						=> COMMITTRANS
+						=> COMMON
+						=> COM
+						=> CONST
+						=> COS
+						=> CREATEINDEX
+						=> CSNG
+						=> CSRLIN
+						=> CURDIR$
+						=> CURRENCY
+						=> CVC
+						=> CVDMBF
+						=> CVD
+						=> CVI
+						=> CVL
+						=> CVSMBF
+						=> CVS
+						=> DATA
+						=> DATE$
+						=> DECLARE
+						=> DEFCUR
+						=> DEFDBL
+						=> DEFINT
+						=> DEFLNG
+						=> DEFSNG
+						=> DEFSTR
+						=> DEF
+						=> DELETEINDEX
+						=> DELETETABLE
+						=> DELETE
+						=> DIM
+						=> DIR$
+						=> DOUBLE
+						=> DO
+						=> DRAW
+						=> ELSEIF
+						=> ELSE
+						=> ENDIF
+						=> END
+						=> ENVIRON$
+						=> ENVIRON
+						=> EOF
+						=> EQV
+						=> ERASE
+						=> ERDEV$
+						=> ERDEV
+						=> ERL
+						=> ERROR
+						=> ERR
+						=> EVENT
+						=> EXIT
+						=> EXP
+						=> FIELD
+						=> FILEATTR
+						=> FILES
+						=> FIX
+						=> FOR
+						=> FREEFILE
+						=> FRE
+						=> FUNCTION
+						=> GETINDEX$
+						=> GET
+						=> GOSUB
+						=> GOTO
+						=> GO
+						=> HEX$
+						=> IF
+						=> IMP
+						=> INKEY$
+						=> INPUT$
+						=> INPUT
+						=> INP
+						=> INSERT
+						=> INSTR
+						=> INTEGER
+						=> INT
+						=> IOCTL$
+						=> IOCTL
+						=> ISAM
+						=> IS
+						=> KEY
+						=> KILL
+						=> LBOUND
+						=> LCASE$
+						=> LEFT$
+						=> LEN
+						=> LET
+						=> LINE
+						=> LIST
+						=> LOCAL
+						=> LOCATE
+						=> LOCK
+						=> LOC
+						=> LOF
+						=> LOG
+						=> LONG
+						=> LOOP
+						=> LPOS
+						=> LPRINT
+						=> LSET
+						=> LTRIM$
+						=> MID$
+						=> MKC$
+						=> MKD$
+						=> MKDIR
+						=> MKDMBF$
+						=> MKI$
+						=> MKL$
+						=> MKS$
+						=> MKSMBF
+						=> MOD
+						=> MOVEFIRST
+						=> MOVELAST
+						=> MOVENEXT
+						=> MOVEPREVIOUS
+						=> NAME
+						=> NEXT
+						=> NOT
+						=> OCT$
+						=> OFF
+						=> ON
+						=> OPEN
+						=> OPTION
+						=> OR
+						=> OUTPUT
+						=> OUT
+						=> PAINT
+						=> PALETTE
+						=> PCOPY
+						=> PEEK
+						=> PEN
+						=> PLAY
+						=> PMAP
+						=> POINT
+						=> POKE
+						=> POS
+						=> PRESET
+						=> PRINT
+						=> PSET
+						=> PUT
+						=> RANDOMIZE
+						=> RANDOM
+						=> READ
+						=> REDIM
+						=> RESET
+						=> RESTORE
+						=> RESUME
+						=> RETRIEVE
+						=> RETURN
+						=> RIGHT
+						=> RMDIR
+						=> RND
+						=> ROLLBACK
+						=> RSET
+						=> RTRIM$
+						=> RUN
+						=> SADD
+						=> SAVEPOINT
+						=> SCREEN
+						=> SEEKEQ
+						=> SEEKGE
+						=> SEEKGT
+						=> SEEK
+						=> SEG
+						=> SELECT
+						=> SETINDEX
+						=> SETMEM
+						=> SGN
+						=> SHARED
+						=> SHELL
+						=> SIGNAL
+						=> SINGLE
+						=> SIN
+						=> SLEEP
+						=> SOUND
+						=> SPACE$
+						=> SPC
+						=> SQR
+						=> SSEGADD
+						=> SSEG
+						=> STACK
+						=> STATIC
+						=> STEP
+						=> STICK
+						=> STOP
+						=> STR$
+						=> STRIG
+						=> STRING$
+						=> STRING
+						=> SUB
+						=> SWAP
+						=> SYSTEM
+						=> TAB
+						=> TAN
+						=> THEN
+						=> TIME$
+						=> TIMER
+						=> TO
+						=> TROFF
+						=> TRON
+						=> TYPE
+						=> UBOUND
+						=> UCASE$
+						=> UEVENT
+						=> UNLOCK
+						=> UNTIL
+						=> UPDATE
+						=> USING
+						=> VAL
+						=> VARPTR$
+						=> VARPTR
+						=> VARSEG
+						=> VIEW
+						=> WAIT
+						=> WEND
+						=> WHILE
+						=> WIDTH
+						=> WINDOW
+						=> WRITE
+						=> XOR
+	Strings 			=> "
+	Symbols				=> $%!#()^-*/+=<>
+	SingleLineComment 	=> '
+						=> REM
+	CaseSensitive 		=> NO
+	CaseConvert			=> YES
+}
+
+Style BasicLikeLanguage (.bll) Base
+{
+	Reserved			=> void
+						=> begin
+						=> end
+						=> if
+						=> then
+						=> else
+						=> and
+						=> or
+						=> not
+						=> true
+						=> false
+						=> int
+						=> string
+						=> select
+						=> when
+						=> repeat
+						=> until
+	Strings 			=> "
+	Symbols				=> ()[]{}=
+	OpenComment 		=> /*
+	CloseComment 		=> */
+	SingleLineComment 	=> //
+	CaseSensitive 		=> NO
+	CaseConvert			=> YES
+}
+
+Style BatchFile (.bat) Base
+{
+	Reserved 			=> SET
+						=> PROMPT
+						=> ECHO
+						=> IF
+						=> ON
+						=> OFF
+						=>	DO
+						=> NOT
+						=> PATH
+						=> LOADHIGH
+   	Symbols				=> @.[]$\/:
+	Strings 			=> '"
+	SingleLineComment 	=> REM
+	CaseSensitive 		=> NO
+	Editor				=> b2.exe
+}
+
+;------------------------------------oOo-----------------------------------
+;
+; $Log: os.set $
+; Revision 2.11  1995/04/29 11:58:11  jallen
+; GA 2.11 Release
+;
+; Revision 2.8  1995/04/29 07:58:44  jallen
+; Starting DOS32 testing
+;
+; Revision 2.6  1995/01/22 14:39:40  jallen
+; Public Release
+;
+; Revision 2.5  1994/12/27 17:03:38  jallen
+; OnScreen/2 2.05
+;
+; Revision 2.4  1994/12/22 18:58:14  jallen
+; Fixed bugs in display for Win32 on Windows NT 3.5
+; Added an automatic file modified detection facility
+;
+; Revision 2.3.1.3  1994/12/22 18:44:20  jallen
+; Fixed all display related bug for Win32 under Windows NT 3.5
+; Also added automatic file modified detection
+;
+; Revision 2.3.1.2  1994/12/13  01:52:52  jallen
+; Changed state to GM (Golden Master)
+;
+; Revision 2.3.1.1  1994/12/13  01:44:51  jallen
+; Updated all docs to 2.03
+;
+; Revision 2.3  1994/12/13  00:53:48  jallen
+; Fixed bugs:
+; TopLineFormat setting on os.set file was being ignored
+; Move file failed if moving to a different device
+; Running an editor that used stdout cause it output to go to nul
+;
+; Revision 2.2  1994/12/11  23:51:13  jallen
+; OnScreen/2 2.02 release to general public
+;
+; Revision 2.1  1994/12/07  15:18:25  jallen
+; 2.0.1 bug fixes for kbd problems on DPMI32 and Win32
+;
+; Revision 2.0.1.2  1994/12/07  15:15:48  jallen
+; Fixed keyboard problems with DPMI32 and Win32
+;
+; Revision 2.0.1.1  1994/12/04  17:38:59  jallen
+; making some fixes for DOS & Win32 keyboard support with Borland's C++
+;
+; Revision 2.0  1994/12/04  00:10:22  jallen
+; At last OnScreen/2 2.00
+;
+; Revision 1.96  1994/12/03  03:20:35  jallen
+; Setting state to Gamma
+;
+; Revision 1.95  1994/12/03  03:11:31  jallen
+; Last build before going to 2.00
+;
+; Revision 1.91  1994/12/03  02:55:26  johna
+; *** empty log message ***
+;
+; Revision 1.90  1994/11/06  16:51:58  johna
+; Third and final Beta of OnScreen
+;
+; Revision 1.1  1994/11/02  01:26:28  johna
+; Initial revision
+;
+;------------------------------------oOo-----------------------------------
+; (C) 1994 Warp Factor 7, All rights Reserved.
+;------------------------------------oOo-----------------------------------
+
+

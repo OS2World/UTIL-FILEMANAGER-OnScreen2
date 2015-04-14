@@ -1,0 +1,30 @@
+Things to do to OnScreen
+
+Release 2.xx
+
+  ú    Add direct support for zip files acting as directories into the file
+       manager.
+  ú    Add grep facility, options for current buffer, all buffers, filespec.
+       grep would display results in a selectable list
+  ú    Add feature to allow search to go across buffers.
+  ú    Multiple select in the file manager.
+  ú    Ctrl+/ select all.
+  ú    Ctrl+\ deselect all.
+  ú    Invoke any program on current file or tagged set in file manager.
+  ú    User specifiable key bindings.
+  ú    Add ANSI Escape sequences for text with layout.
+  ú    Cross file bookmarks.
+  ú    Persistent bookmarks.
+  ú    Persistent loaded file list. ???
+  ú    Bookmarks, both numeric & named.
+  ú    Partial file loading.
+  ú    Print current file. (with Postscript support)
+  ú    Option to use standard OS/2 or DOS wildcards.
+  ú    Speed up searches, both plain text & regular expression.
+  ú    24 hour time format option.
+  ú    Command line options for:-
+			search
+			goto line/goto text
+			hex/text mode
+			set tab size
+

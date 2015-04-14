@@ -1,0 +1,44 @@
+  OnScreen/2 Command keys, Release 2.50, press ESC when finished viewing help
+
+  File Viewer keys
+  ?,F1      Load and display help file  F2,F2    Change text color
+  F3,F3    Change selected text color  F4,F4    Change status text color
+  F5        Change bold text color      F6        Change underline color
+  PgUp      Page Up                     Ctrl+PgUp Previous file
+  PgDn, Spc Page Down                   Ctrl+PgDn Next file
+  Home      Top of file                 End       Bottom of file
+           Up a line                            Down a line
+  ->        Scroll left                 <-        Scroll right
+  Ctrl+<-   Scroll to column 0          Ctrl+S    Write config file
+  /,S       Scan (case-sensitive)       \,F       Find (case-insensitive)
+  Alt+S     Scan backwards              Alt+F     Find backwards
+  A, Ctrl+L Scan/Find again             G         Goto line number
+  R         Toggle regular expressions  O         Toggle sound
+  Tab,Tab  Increase/Decrease tab size  Ctrl+T    Toggle tab expansion
+  Alt+P     Previous file               +         Add files to buffer list
+  Alt+N     Next file                   -         Drop file from buffer list
+  Alt(0-9)  Drop bookmark               Alt+Z     Switch top line format
+  Alt+G     Goto bookmark               H         Toggle hex mode
+  B         Buffer list                 Alt+E     Invoke editor
+  *         Reload current file         Ctrl+F    Show full filename
+  1 to 9    Quick file select           Alt+X     Quit & restore screen
+  K         Toggle keep files loaded    Alt+Q     Quit & clear screen
+  L         Toggle text with layout     Alt+A     Quit & clear last line
+  Alt+O     OS-Shell                    .         Toggle highbit filter
+  W         Toggle word break           D         Toggle external filter
+
+  File Browser keys
+  Ctrl+A..Z Change current disk         Enter     View file
+           Up a file                            Down a file
+  ->        Move left                   <-        Move right
+  Alt+Back  Clear selection             BkSpace   Delete search text
+  Alt+(123)	Display 1,2 or 3 columns
+  Home      First file on screen        End       Last file on screen
+            Then first file in list               Then last file in list
+
+  Type the name of the file for a quick search, press and hold the shift key
+  to search for directories.
+
+  See OS.MAN for additional information.
+  Comments, bug reports etc... to john.allen@codemountain.net
+

@@ -1,0 +1,661 @@
+;*[f*-(------------------------------oOo-----------------------------------
+;
+; Saved at 06:54:28am Sat 12th Aug 1995
+;
+; You can set a variety of OnScreen/2 items in this file.
+; * Colours for status lines
+; * Colours for file manager & buffer list
+; * Other global OnScreen/2 settings
+; * Styles, including syntax highlighting
+; * Key bindings (coming soon)
+;
+; In this file you can specify the styles which OnScreen/2 will apply
+; to files with specific extensions.
+;
+; Files with either no extension or with an extension which is not
+; listed here will use the OnScreen/2 defaults.
+;
+; Comments start with a ; and end at EOL. The ; must be the first
+; non whitespace character on the line
+;
+; The syntax for the style heading is as follows
+; Keyword StyleName File-Ext-List Inherited-Styles
+; Style   Pascal    (.pas)        Base Default...
+;
+;*f]*--------------------------------oOo-----------------------------------
+
+Settings
+{
+	Sound					=> Off
+	KeepFilesLoaded			=> Off
+	Search					=> Plain
+	StatusTextForeColor		=> Black
+	StatusTextBackColor		=> LightGray
+	DiskTextForeColor		=> Black
+	DiskTextBackColor		=> LightGray
+	CurDiskTextForeColor	=> White
+	CurDiskTextBackColor	=> LightGray
+	FileTextForeColor		=> LightGray
+	FileTextBackColor		=> Black
+	CurFileTextForeColor	=> White
+	CurFileTextBackColor	=> LightGray
+}
+
+Style Default (*)
+{
+	ForeGndColor			=> LightGray
+	BackGndColor			=> Black
+	SelectedForeGndColor	=> White
+	SelectedBackGndColor	=> LightGray
+	BoldColor				=> White
+	UnderlineColor			=> Brown
+	BoldUnderlineColor		=> Yellow
+	ExpandTabs				=> On
+	HighbitFilter			=> Off
+	TextWithLayout			=> On
+	TabWidth				=> 4
+	DisplayMode				=> Text
+	ExternalFilter			=> 
+	Editor					=> b2.exe
+	TopLineFormat			=> 1
+	WordBreak				=> Off
+	SymbolsColor			=> Yellow
+	CommentColor			=> LightGray
+	StringColor				=> LightRed
+	ReservedColor			=> White
+	PreProcessorColor		=> Yellow
+	NumberColor				=> Brown
+	IdentColor				=> Green
+	Symbols					=> 
+	Strings					=> 
+	CaseSensitive			=> Yes
+	CaseConvert				=> No
+	CommentColumn			=> 0
+}
+
+Style Base () Default
+{
+	ExpandTabs				=> On
+	HighbitFilter			=> Off
+	TextWithLayout			=> Off
+	TabWidth				=> 4
+	DisplayMode				=> Text
+}
+
+Style Zip (.zip) Default
+{
+	ExternalFilter			=> unzip -v %s
+	Editor					=> 
+}
+
+Style Binary (.exe .com .dll .ico) Default
+{
+	DisplayMode				=> Hex
+}
+
+Style Wordstar (.doc) Base
+{
+	HighbitFilter			=> On
+	TextWithLayout			=> On
+	TabWidth				=> 4
+	Editor					=> b2.exe -h
+}
+
+Style UnixManPage (.man .1) Base
+{
+	HighbitFilter			=> On
+	TextWithLayout			=> On
+	TabWidth				=> 4
+	Editor					=> b2.exe -h
+}
+
+Style C (.c .h) Base
+{
+	TabWidth				=> 4
+	Editor					=> b2.exe
+	Reserved				=> asm
+							=> auto
+							=> break
+							=> case
+							=> cdecl
+							=> char
+							=> const
+							=> continue
+							=> default
+							=> do
+							=> double
+							=> else
+							=> enum
+							=> extern
+							=> far
+							=> float
+							=> for
+							=> goto
+							=> huge
+							=> if
+							=> int
+							=> interrupt
+							=> long
+							=> near
+							=> pascal
+							=> register
+							=> return
+							=> short
+							=> signed
+							=> sizeof
+							=> static
+							=> struct
+							=> switch
+							=> typedef
+							=> union
+							=> unsigned
+							=> void
+							=> volatile
+							=> while
+	Symbols					=> {}[]().=+-*/:;<>|&,~!^?
+	OpenComment				=> /*
+	CloseComment			=> */
+	Strings					=> '"
+	Escape					=> \
+	NumberPrefix			=> 0X
+							=> 0x
+	CaseSensitive			=> Yes
+	OpenPreProcessor		=> #
+	LineContinuation		=> \
+}
+
+Style C++ (.cpp .hpp .cxx .hxx) C
+{
+	Reserved				=> catch
+							=> class
+							=> delete
+							=> friend
+							=> inline
+							=> new
+							=> operator
+							=> private
+							=> protected
+							=> public
+							=> template
+							=> this
+							=> throw
+							=> try
+							=> virtual
+	OpenComment				=> /*
+	CloseComment			=> */
+	SingleLineComment		=> //
+	NumberPrefix			=> 0X
+							=> 0x
+}
+
+Style OSStyle (.set) Base
+{
+	TabWidth				=> 4
+	Editor					=> b2.exe
+	WordBreak				=> Off
+	Reserved				=> BackGndColor
+							=> Black
+							=> Blue
+							=> BoldColor
+							=> BoldUnderlineColor
+							=> Brown
+							=> CaseSensitive
+							=> CloseComment
+							=> ClosePreprocessor
+							=> CommentColor
+							=> CommentColumn
+							=> Cyan
+							=> DarkGray
+							=> DisplayMode
+							=> Editor
+							=> Escape
+							=> ExpandTabs
+							=> ExternalFilter
+							=> ForeGndColor
+							=> Green
+							=> Hex
+							=> HighBitFilter
+							=> IdentColor
+							=> LightBlue
+							=> LightCyan
+							=> LightGray
+							=> LightGreen
+							=> LightMagenta
+							=> LightRed
+							=> LineContinuation
+							=> Magenta
+							=> NO
+							=> NumberColor
+							=> NumberPrefix
+							=> OFF
+							=> ON
+							=> OpenComment
+							=> OpenPreprocessor
+							=> PreprocessorColor
+							=> Red
+							=> RegularExpressions
+							=> Reserved
+							=> ReservedColor
+							=> SelectedBackGndColor
+							=> SelectedForeGndColor
+							=> SingleLineComment
+							=> Sound
+							=> StatusBackGndColor
+							=> StatusForeGndColor
+							=> StringColor
+							=> Strings
+							=> Style
+							=> Symbols
+							=> SymbolsColor
+							=> TabWidth
+							=> Text
+							=> TextWithLayout
+							=> TopLineFormat
+							=> UnderlineColor
+							=> White
+							=> Yellow
+							=> YES
+	Symbols					=> >=(){}.
+	SingleLineComment		=> ;
+	CaseSensitive			=> No
+}
+
+Style Pascal (.pas .inc) Base
+{
+	Editor					=> b2.exe
+	Reserved				=> AND
+							=> ARRAY
+							=> ASM
+							=> BEGIN
+							=> BOOLEAN
+							=> BYTE
+							=> CASE
+							=> CHAR
+							=> COMP
+							=> CONST
+							=> CONSTRUCTOR
+							=> DESTRUCTOR
+							=> DIV
+							=> DO
+							=> DOUBLE
+							=> DOWNTO
+							=> ELSE
+							=> END
+							=> EXIT
+							=> EXTENDED
+							=> EXTERNAL
+							=> FALSE
+							=> FILE
+							=> FOR
+							=> FORWARD
+							=> FUNCTION
+							=> GOTO
+							=> IF
+							=> IMPLEMENTATION
+							=> IN
+							=> INTEGER
+							=> INTERFACE
+							=> LABEL
+							=> LONGINT
+							=> MOD
+							=> NIL
+							=> NOT
+							=> OBJECT
+							=> OF
+							=> OR
+							=> ORD
+							=> PACKED
+							=> PRIVATE
+							=> PROCEDURE
+							=> PROGRAM
+							=> REAL
+							=> RECORD
+							=> REPEAT
+							=> SET
+							=> SHL
+							=> SHORTINT
+							=> SHR
+							=> SINGLE
+							=> STRING
+							=> THEN
+							=> TO
+							=> TRUE
+							=> TYPE
+							=> UNIT
+							=> UNTIL
+							=> USES
+							=> VAR
+							=> VIRTUAL
+							=> WHILE
+							=> WITH
+							=> WORD
+							=> XOR
+	Symbols					=> @().=*+-/[],<>:;
+	OpenComment				=> (*
+							=> {
+	CloseComment			=> *)
+							=> }
+	Strings					=> '"
+	NumberPrefix			=> $
+							=> #
+	CaseSensitive			=> No
+	CaseConvert				=> Yes
+	OpenPreProcessor		=> {$
+	ClosePreProcessor		=> }
+}
+
+Style Basic (.bas .bi) Base
+{
+	Reserved				=> ABS
+							=> ACCESS
+							=> ALIAS
+							=> ALL
+							=> AND
+							=> ANY
+							=> APPEND
+							=> AS
+							=> ASC
+							=> ATN
+							=> BASE
+							=> BEEP
+							=> BEGINTRANS
+							=> BINARY
+							=> BLOAD
+							=> BOF
+							=> BSAVE
+							=> BYVAL
+							=> CALL
+							=> CALLS
+							=> CASE
+							=> CCUR
+							=> CDBL
+							=> CDECL
+							=> CHAIN
+							=> CHDIR
+							=> CHDRIVE
+							=> CHECKPOINT
+							=> CHR$
+							=> CINT
+							=> CIRCLE
+							=> CLEAR
+							=> CLNG
+							=> CLOSE
+							=> CLS
+							=> COLOR
+							=> COM
+							=> COMMAND$
+							=> COMMITTRANS
+							=> COMMON
+							=> CONST
+							=> COS
+							=> CREATEINDEX
+							=> CSNG
+							=> CSRLIN
+							=> CURDIR$
+							=> CURRENCY
+							=> CVC
+							=> CVD
+							=> CVDMBF
+							=> CVI
+							=> CVL
+							=> CVS
+							=> CVSMBF
+							=> DATA
+							=> DATE$
+							=> DECLARE
+							=> DEF
+							=> DEFCUR
+							=> DEFDBL
+							=> DEFINT
+							=> DEFLNG
+							=> DEFSNG
+							=> DEFSTR
+							=> DELETE
+							=> DELETEINDEX
+							=> DELETETABLE
+							=> DIM
+							=> DIR$
+							=> DO
+							=> DOUBLE
+							=> DRAW
+							=> ELSE
+							=> ELSEIF
+							=> END
+							=> ENDIF
+							=> ENVIRON
+							=> ENVIRON$
+							=> EOF
+							=> EQV
+							=> ERASE
+							=> ERDEV
+							=> ERDEV$
+							=> ERL
+							=> ERR
+							=> ERROR
+							=> EVENT
+							=> EXIT
+							=> EXP
+							=> FIELD
+							=> FILEATTR
+							=> FILES
+							=> FIX
+							=> FOR
+							=> FRE
+							=> FREEFILE
+							=> FUNCTION
+							=> GET
+							=> GETINDEX$
+							=> GO
+							=> GOSUB
+							=> GOTO
+							=> HEX$
+							=> IF
+							=> IMP
+							=> INKEY$
+							=> INP
+							=> INPUT
+							=> INPUT$
+							=> INSERT
+							=> INSTR
+							=> INT
+							=> INTEGER
+							=> IOCTL
+							=> IOCTL$
+							=> IS
+							=> ISAM
+							=> KEY
+							=> KILL
+							=> LBOUND
+							=> LCASE$
+							=> LEFT$
+							=> LEN
+							=> LET
+							=> LINE
+							=> LIST
+							=> LOC
+							=> LOCAL
+							=> LOCATE
+							=> LOCK
+							=> LOF
+							=> LOG
+							=> LONG
+							=> LOOP
+							=> LPOS
+							=> LPRINT
+							=> LSET
+							=> LTRIM$
+							=> MID$
+							=> MKC$
+							=> MKD$
+							=> MKDIR
+							=> MKDMBF$
+							=> MKI$
+							=> MKL$
+							=> MKS$
+							=> MKSMBF
+							=> MOD
+							=> MOVEFIRST
+							=> MOVELAST
+							=> MOVENEXT
+							=> MOVEPREVIOUS
+							=> NAME
+							=> NEXT
+							=> NOT
+							=> OCT$
+							=> OFF
+							=> ON
+							=> OPEN
+							=> OPTION
+							=> OR
+							=> OUT
+							=> OUTPUT
+							=> PAINT
+							=> PALETTE
+							=> PCOPY
+							=> PEEK
+							=> PEN
+							=> PLAY
+							=> PMAP
+							=> POINT
+							=> POKE
+							=> POS
+							=> PRESET
+							=> PRINT
+							=> PSET
+							=> PUT
+							=> RANDOM
+							=> RANDOMIZE
+							=> READ
+							=> REDIM
+							=> RESET
+							=> RESTORE
+							=> RESUME
+							=> RETRIEVE
+							=> RETURN
+							=> RIGHT
+							=> RMDIR
+							=> RND
+							=> ROLLBACK
+							=> RSET
+							=> RTRIM$
+							=> RUN
+							=> SADD
+							=> SAVEPOINT
+							=> SCREEN
+							=> SEEK
+							=> SEEKEQ
+							=> SEEKGE
+							=> SEEKGT
+							=> SEG
+							=> SELECT
+							=> SETINDEX
+							=> SETMEM
+							=> SGN
+							=> SHARED
+							=> SHELL
+							=> SIGNAL
+							=> SIN
+							=> SINGLE
+							=> SLEEP
+							=> SOUND
+							=> SPACE$
+							=> SPC
+							=> SQR
+							=> SSEG
+							=> SSEGADD
+							=> STACK
+							=> STATIC
+							=> STEP
+							=> STICK
+							=> STOP
+							=> STR$
+							=> STRIG
+							=> STRING
+							=> STRING$
+							=> SUB
+							=> SWAP
+							=> SYSTEM
+							=> TAB
+							=> TAN
+							=> THEN
+							=> TIME$
+							=> TIMER
+							=> TO
+							=> TROFF
+							=> TRON
+							=> TYPE
+							=> UBOUND
+							=> UCASE$
+							=> UEVENT
+							=> UNLOCK
+							=> UNTIL
+							=> UPDATE
+							=> USING
+							=> VAL
+							=> VARPTR
+							=> VARPTR$
+							=> VARSEG
+							=> VIEW
+							=> WAIT
+							=> WEND
+							=> WHILE
+							=> WIDTH
+							=> WINDOW
+							=> WRITE
+							=> XOR
+	Symbols					=> $%!#()^-*/+=<>
+	SingleLineComment		=> '
+							=> REM
+	Strings					=> "
+	CaseSensitive			=> No
+	CaseConvert				=> Yes
+}
+
+Style BasicLikeLanguage (.bll) Base
+{
+	Reserved				=> and
+							=> begin
+							=> else
+							=> end
+							=> false
+							=> if
+							=> int
+							=> not
+							=> or
+							=> repeat
+							=> select
+							=> string
+							=> then
+							=> true
+							=> until
+							=> void
+							=> when
+	Symbols					=> ()[]{}=
+	OpenComment				=> /*
+	CloseComment			=> */
+	SingleLineComment		=> //
+	Strings					=> "
+	CaseSensitive			=> No
+	CaseConvert				=> Yes
+}
+
+Style BatchFile (.bat) Base
+{
+	Editor					=> b2.exe
+	Reserved				=> DO
+							=> ECHO
+							=> IF
+							=> LOADHIGH
+							=> NOT
+							=> OFF
+							=> ON
+							=> PATH
+							=> PROMPT
+							=> SET
+	Symbols					=> @.[]$\/:
+	SingleLineComment		=> REM
+	Strings					=> '"
+	CaseSensitive			=> No
+}
+
+;------------------------------------oOo-----------------------------------

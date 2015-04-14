@@ -1,0 +1,62 @@
+Archive Name: os2_50or.zip
+Program Description: OnScreen/2, FLOSS fileviewer, v2.50
+Operating System: OS/2 2.x, 3.x
+Program Source: john.allen@codemountain.net
+Replaces: os2_03or.zip
+
+ OnScreen/2 is a sophisticated  fullscreen  text  and binary file viewer
+ for the OS/2, DOS and Win32 operating systems running on IBM compatible
+ PCs based on the 386 or higher CPUs.
+
+ OnScreen/2 displays files in a text window or  fullscreen  session  and
+ provides  scrolling,  positioning,  searching  and  filtering commands.
+ OnScreen/2 provides a powerful  file  browser for selecting files which
+ also provides basic file management functionality.  OnScreen/2 supports
+ redirected input (i.e.  piping).
+
+ OnScreen/2 runs on the following operating systems
+ OS/2: Versions 2.0, 2.1, 2.11 and 3.0 Warp.
+ Windows NT: Version 3.5 only.
+ Windows 95: Final beta only.
+ DOS: Versions 5.0, 6.0, 6.21, 6.22.
+
+ OnScreen/2  is  free software, and  is licensed under the GNU GPL v2 or 
+ later.
+
+ ** Feature list **
+
+ Case-sensitive/insensitive regular expression and plain text searches.
+ Horizontal scrolling 10 chars at a time.
+ Page up & down.
+ Go to top or bottom of file.
+ Go to a specific line.
+ Go to previous or next file.
+ Load OS/2, MAC & Unix text files and binary files.
+ Supports redirected stdin.
+ Command help with ?  or F1.  (os.hlp must be in same dir as os.exe)
+ User configurable tab size.
+ Customisable colours.
+ Quick file select using keys 1 to 9.
+ 32 bit versions for OS/2, DOS and Windows NT.
+ Selection list for loaded files.
+ Remove file from loaded list.
+ Run with no arguments or  one  argument  which is a directory brings up
+  file selection browser.
+ Line editor with history recall for input on bottom status line.
+ Bookmarks.
+ Multiple top line display formats.
+ Hex mode.
+ Bright background colours.
+ Display of text with layout information.
+ User definable styles, including syntax highlighting.
+ Invoke editor.  (Including PM or Win32 apps)
+ Display output of filter rather than file contents.
+ Enhanced file selection browser with edit, copy, rename, delete,  move,
+  sort, change directory, make directory and set file matching pattern.
+
+Your name: John Allen
+Your email address: john.allen@codemountain.net
+
+Proposed directory for placement: /os2/32bit/editors
+
+
